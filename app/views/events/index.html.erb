@@ -1,0 +1,20 @@
+<div class="row container">
+  <div class="events-list columns large-6 small-12">
+    <div>
+      <h3>Historical Events</h3>
+      <div id="events">
+        <ul>
+          <% @events.each do |event| %>
+            <li><%= link_to "#{event.name}", event_path(event) %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-form columns large-6 small-12">
+    <h3>Create a Historical Event</h3>
+
+    <%= render 'form' %>
+  </div>
+</div>
