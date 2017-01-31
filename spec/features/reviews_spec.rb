@@ -50,4 +50,34 @@ RSpec.feature 'user can add reviews' do
 
     expect(page).to have_content('Body can\'t be blank')
   end
+
+  scenario 'user can edit review' do
+    login_as_user(user_one)
+
+    visit events_path
+
+    fill_in 'Name', with: "An Event"
+    fill_in 'Date', with: "12/12/12"
+    fill_in 'Address', with: "123 Summer Street"
+    fill_in 'City', with: "Boston"
+    fill_in 'State', with: "MA"
+    fill_in 'Zip code', with: "02999"
+    fill_in 'Description', with: "Things happened here!"
+
+    click_on 'Add Event'
+
+    click_on 'Add Review'
+
+    fill_in 'Review', with: "What a great event!"
+
+    click_on 'Submit Review'
+
+    click_on 'Edit Review'
+
+    fill_in 'Review', with: "That was a great event."
+
+    click_on 'Submit Review'
+
+    expect(page).to have_content "Review updated successfully!"
+  end
 end
