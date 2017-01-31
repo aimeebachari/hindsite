@@ -1,0 +1,10 @@
+<div class="row container">
+  <div class="edit-review columns large-6 small-12">
+
+    <h3>Edit Review Form for <%= @event.name %></h3>
+
+    <%= render 'form' %><br />
+
+    <%= link_to "Delete", @review, method: :delete, data: {confirm: "Are you sure?"} %>
+  </div>
+</div>

@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Hindsight</title>
     <%= csrf_meta_tags %>
 
@@ -30,6 +33,16 @@
     </div>
 
   <body>
+    <div class="row container">
+      <div class="columns large-6 small-12">
+        <% if notice %>
+         <p class="alert alert-success" id="errors"><%= notice %></p>
+         <% end %>
+         <% if alert %>
+         <p class="alert alert-danger"><%= alert %></p>
+         <% end %>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>

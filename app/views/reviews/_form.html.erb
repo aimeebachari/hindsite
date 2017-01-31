@@ -1,0 +1,12 @@
+<%= form_for [@event, @review] do |f| %>
+
+  <div>
+    <%= f.label :body, "Review" %>
+    <%= f.text_field :body %>
+  </div>
+
+  <div>
+    <%= f.submit "Submit Review" %>
+  </div>
+
+<% end %>

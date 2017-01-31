@@ -7,13 +7,18 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @user = current_user
+    @reviews = @event.reviews
+  end
+
+  def new
+    @event = Event.new
   end
 
   def create
     @event = Event.new(event_params)
 
     if @event.save
-      flash[:notice] = "Event created successfully!"
+      flash[:alert] = "Event created successfully!"
       redirect_to @event
     else
       @events = Event.all

@@ -21,6 +21,13 @@ require 'coveralls'
 Coveralls.wear!('rails')
 
 RSpec.configure do |config|
+
+  def login_as_user(user)
+    visit "/users/sign_in"
+    fill_in "Email", with: user.email
+    fill_in "Password", with: user.password
+    click_on "Log in"
+  end
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
   # assertions if you prefer.
