@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     @review.event = @event
     @review.user = @user
     if @review.save
-      flash[:notice] = "Review created successfully!"
+      flash[:alert] = "Review created successfully!"
       redirect_to @event
     else
       flash.now[:notice] = @review.errors.full_messages.to_sentence
