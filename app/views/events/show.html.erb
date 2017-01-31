@@ -19,10 +19,14 @@
       <%= link_to 'Add Review', new_event_review_path(@event) %>
     </div>
 
-    <div class="row container">
+    <div class="row container columns large-6 small-12">
       <div id="ReviewList">
         <% @reviews.each do |review| %>
-          <p><%= review.body %></p>
+          <p><%= review.body %>
+            <% if @user.id == review.user_id || @user.admin? %>
+              <%= link_to 'Edit Review', edit_event_review_path(review) %>
+            <% end %>
+          </p>
         <% end %>
       </div>
     </div>
