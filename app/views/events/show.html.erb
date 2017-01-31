@@ -15,8 +15,15 @@
       </div>
     <% end %>
 
+    <div>
+      <%= link_to 'Add Review', new_event_review_path(@event) %>
+    </div>
+
     <div class="row container">
       <div id="ReviewList">
+        <% @reviews.each do |review| %>
+          <p><%= review.body %></p>
+        <% end %>
       </div>
     </div>
 
