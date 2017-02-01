@@ -1,0 +1,103 @@
+.events-list {
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.event-form {
+  padding-top: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+}
+
+.title-link {
+  font-size: 30px;
+  padding-left: 30px;
+}
+
+.title {
+  text-align: center;
+  color: white;
+}
+
+.signup {
+  padding-top: 40px;
+  padding-left: 40px;
+}
+
+.login {
+  padding-top: 40px;
+  padding-left: 40px;
+}
+
+.forgot-email {
+  padding-top: 40px;
+  padding-left: 40px;
+}
+
+.top-bar {
+  background-color: transparent;
+}
+
+.top-bar-right {
+  padding-right: 20px;
+}
+
+body {
+  background-image:       linear-gradient(
+    rgba(115, 70, 28, 0.5),
+    rgba(115, 70, 28, 0.5)
+    ),
+    url("/assets/home.jpg");
+  background-size: cover;
+  color: white;
+  font-family: Della Respira;
+}
+
+label {
+  color: white;
+  font-weight: bold;
+}
+
+input {
+  background-color: white;
+}
+
+a {
+  color: white;
+}
+
+.event-show {
+  padding-left: 40px;
+  padding-top: 40px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.reviewlist {
+  padding-right: 40px;
+  padding-top: 40px;
+  font-size: 20px;
+}
+
+.edit-user {
+  padding-left: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.cancel {
+  padding-top: 40px;
+  padding-left: 40px;
+}
+
+.new-review {
+  padding-top: 40px;
+  padding-left: 40px;
+}
+
+.alert {
+  padding-left: 40px;
+}
