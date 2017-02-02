@@ -1,0 +1,24 @@
+
+<h3>New Trip Form</h3>
+  <%= form_for(@trip) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :start_event %>
+    <%= f.collection_select :start_event_id, @events, :id, :name, prompt: "Select a Starting Point"  %>
+  </div>
+
+  <div>
+    <%= f.label :end_event %>
+    <%= f.collection_select :end_event_id, @events, :id, :name, prompt: "Select an Ending Point" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit(value="Create a Trip") %>
+  </div>
+
+<% end %>

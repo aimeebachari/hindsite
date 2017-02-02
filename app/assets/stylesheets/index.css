@@ -6,6 +6,28 @@
   font-size: 20px;
 }
 
+.trips-index {
+  padding-top: 40px;
+  text-align: center;
+}
+
+.trip-show-title {
+  text-align: center;
+  padding-top: 40px;
+}
+
+.trip-show-start {
+  padding-left: 40px;
+}
+
+.trip-show-end {
+  padding-right: 40px;
+}
+
+.trip-show {
+  padding-bottom: 40px;
+}
+
 .event-form {
   padding-top: 40px;
   padding-right: 40px;
@@ -84,6 +106,15 @@ a {
   font-size: 20px;
 }
 
+.link-to-trips {
+  text-align: center;
+}
+
+.new-trip {
+  padding-right: 40px;
+  padding-top: 40px;
+}
+
 .edit-user {
   padding-left: 40px;
   padding-top: 40px;
@@ -98,6 +129,10 @@ a {
 .new-review {
   padding-top: 40px;
   padding-left: 40px;
+}
+
+.new-trip {
+  padding-top: 20px;
 }
 
 .alert {
