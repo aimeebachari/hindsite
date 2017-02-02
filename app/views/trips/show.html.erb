@@ -1,0 +1,23 @@
+<div class="row container trip-show">
+  <div class="trip-show-title columns large-12 small-12">
+    <h3><%= @trip.name %></h3>
+  </div>
+
+  <div class="trip-show-start columns large-6 small-12">
+    <h4><%= @trip.start_event.name %></h4>
+    <p><%= @trip.start_event.address %>, <%= @trip.start_event.zip_code %></p>
+    <p><%= @trip.start_event.description %></p>
+  </div>
+
+  <div class="trip-show-end columns large-6 small-12">
+    <h4><%= @trip.end_event.name %></h4>
+    <p><%= @trip.end_event.address %>, <%= @trip.end_event.zip_code %></p>
+    <p><%= @trip.end_event.description %></p>
+  </div>
+
+  <div class="edit-delete-trip columns large-12 small-12">
+    <% if @user.admin? %>
+      <%= link_to "Delete Trip", trip_path(@trip), method: :delete %>
+    <% end %>
+  </div>
+</div>

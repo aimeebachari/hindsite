@@ -1,6 +1,12 @@
-<h3>HindSite Trips</h3>
-<ul>
-  <% @trips.each do |trip| %>
-    <li><%= trip.name %></li>
-  <% end %>
-</ul>
+<div class="row container">
+  <div class="trips-index columns large-6 small-12">
+    <h3>HindSite Trips</h3>
+      <% @trips.each do |trip| %>
+        <p><%= link_to "#{trip.name}", trip_path(trip) %></p>
+      <% end %>
+  </div>
+
+  <div class="new-trip columns large-6 small-12">
+    <%= render 'form' %>
+  </div>
+</div>

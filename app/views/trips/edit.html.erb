@@ -1,0 +1,25 @@
+<div class="row container">
+  <div class="edit-trip columns large-6 small-12">
+    <h3>Update Trip<h3>
+      <%= form_for(@trip) do |f| %>
+
+      <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+      </div>
+
+      <div>
+        <%= f.label :start_event %>
+        <%= f.collection_select :start_event_id, @events, :id, :name %>
+      </div>
+
+      <div>
+        <%= f.label :end_event %>
+        <%= f.collection_select :end_event_id, @events, :id, :name %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit(value="Update Trip") %>
+      </div>
+  </div>
+</div>
