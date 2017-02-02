@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
   has_many :reviews
+  has_many :trips
 
   validates :name, presence: true
   validates :address, presence: true
