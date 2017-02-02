@@ -1,11 +1,11 @@
 <div class="row container">
   <div class="events-list columns large-6 small-12">
-      <h3>Historical Events</h3>
-      <div id="events">
-          <% @events.each do |event| %>
-            <p><%= link_to "#{event.name}", event_path(event) %></p>
-          <% end %>
-      </div>
+    <h3>Historical Events</h3>
+    <div id="events">
+        <% @events.each do |event| %>
+          <p><%= link_to "#{event.name}", event_path(event) %></p>
+        <% end %>
+    </div>
   </div>
 
   <div class="event-form columns large-6 small-12">
