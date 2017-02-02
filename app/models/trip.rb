@@ -1,13 +1,14 @@
 class Trip < ApplicationRecord
-  belongs_to :event, foreign_key: "start_event_id"
-  belongs_to :event, foreign_key: "end_event_id"
+  belongs_to :start_event, class_name: "Event"
+  belongs_to :end_event, class_name: "Event"
 
-  validates :start_event_id, presence: true
-  validates :end_event_id, presence: true
+  validates :name, presence: true
+  validates :start_event, presence: true
+  validates :end_event, presence: true
   validate :start_and_end_are_not_same
 
   def start_and_end_are_not_same
-    if start_event_id == end_event_id
+    if start_event == end_event
       errors.add(:end_event_id, "start and end can't be the same")
     end
   end
