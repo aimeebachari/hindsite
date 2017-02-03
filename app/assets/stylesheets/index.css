@@ -75,7 +75,6 @@ body {
     url("/assets/home.jpg");
   background-size: cover;
   color: white;
-  font-family: Della Respira;
 }
 
 label {
@@ -91,10 +90,13 @@ a {
   color: white;
 }
 
+.filler-map {
+
+}
+
 .event-show {
   padding-left: 40px;
   padding-top: 40px;
-  text-align: center;
   font-size: 20px;
 }
 
@@ -119,6 +121,20 @@ a {
   padding-bottom: 40px;
 }
 
+.trip-details {
+  padding-left: 40px;
+  padding-right: 20px;
+}
+
+.edit-delete-trip {
+  padding-bottom: 40px;
+}
+
+.title {
+  padding-top: 100px;
+  font-size: 75px;
+}
+
 .cancel {
   padding-top: 40px;
   padding-left: 40px;
@@ -134,5 +150,9 @@ a {
 }
 
 .alert {
+  padding-left: 40px;
+}
+
+.edit-delete-trip {
   padding-left: 40px;
 }
