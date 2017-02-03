@@ -19,23 +19,48 @@
   </div>
 </div>
 
-<div class="row container">
-  <div class="filler-map columns large-12 small-12">
-    <%= image_tag("map.jpg") %>
-  </div>
-  
-  <div class="events-list columns large-6 small-12">
-    <h3>Historical Events</h3>
-    <div id="events">
-        <% @events.each do |event| %>
-          <p><%= link_to "#{event.name}", event_path(event) %></p>
-        <% end %>
-    </div>
-  </div>
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var uluru = {lat: 42.325985, lng: -71.093644};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src=<%="https://maps.googleapis.com/maps/api/js?key=#{ENV["GMAPS_API_KEY"]}&callback=initMap"%>>
+    </script>
+  </body>
+</html>
 
-  <div class="event-form columns large-6 small-12">
-    <h3>Create a Historical Event</h3>
-
-    <%= render 'form' %>
+<div class="events-list columns large-6 small-12">
+  <h3>Historical Events</h3>
+  <div id="events">
+      <% @events.each do |event| %>
+        <p><%= link_to "#{event.name}", event_path(event) %></p>
+      <% end %>
   </div>
+</div>
+
+<div class="event-form columns large-6 small-12">
+  <h3>Create a Historical Event</h3>
+
+  <%= render 'form' %>
+</div>
 </div>

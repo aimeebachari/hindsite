@@ -17,6 +17,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'foundation-rails'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
+gem 'dotenv-rails'
+gem 'dotenv'
 
 group :development, :test do
   gem 'pry-rails'

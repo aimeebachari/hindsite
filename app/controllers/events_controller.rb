@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @event = Event.new
+    @gmapsurl="https://maps.googleapis.com/maps/api/js?key=#{ENV["GMAPS_API_KEY"]}&callback=initMap"
   end
 
   def show
