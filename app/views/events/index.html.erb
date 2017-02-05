@@ -31,17 +31,25 @@
   <body>
     <div id="map"></div>
     <script>
+
+      var centerEvent = {lat: 42.325985, lng: -71.093644};
+      var otherEvents = <%= @coordinates.html_safe %>;
+
       function initMap() {
-        var uluru = {lat: 42.325985, lng: -71.093644};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
+          zoom: 11,
+          center: centerEvent
         });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
+
+        for (var i = 0; i < otherEvents.length; i++) {
+          var latLng = new google.maps.LatLng(otherEvents[i].lat, otherEvents[i].lng);
+          var marker = new google.maps.Marker({
+            position: latLng,
+            map: map
+          });
+        }
       }
+
     </script>
     <script async defer
     src=<%="https://maps.googleapis.com/maps/api/js?key=#{ENV["GMAPS_API_KEY"]}&callback=initMap"%>>

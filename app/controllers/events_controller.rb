@@ -2,7 +2,12 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @event = Event.new
-    @gmapsurl="https://maps.googleapis.com/maps/api/js?key=#{ENV["GMAPS_API_KEY"]}&callback=initMap"
+
+    coordinates = @events.map do |event|
+      {lat: event.latitude, lng: event.longitude}
+    end
+
+    @coordinates = JSON.unparse(coordinates)
   end
 
   def show

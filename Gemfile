@@ -19,6 +19,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'dotenv-rails'
 gem 'dotenv'
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-rails'
