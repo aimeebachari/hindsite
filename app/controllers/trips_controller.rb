@@ -28,6 +28,9 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @user = current_user
+
+    @origin = JSON.unparse({lat: @trip.start_event.latitude, lng: @trip.start_event.longitude})
+    @destination = JSON.unparse({lat: @trip.end_event.latitude, lng: @trip.end_event.longitude})
   end
 
   def edit
