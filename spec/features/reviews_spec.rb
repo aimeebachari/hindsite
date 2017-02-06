@@ -14,10 +14,7 @@ RSpec.feature 'user can add reviews' do
 
     fill_in 'Name', with: "An Event"
     fill_in 'Date', with: "12/12/12"
-    fill_in 'Address', with: "123 Summer Street"
-    fill_in 'City', with: "Boston"
-    fill_in 'State', with: "MA"
-    fill_in 'Zip code', with: "02999"
+    fill_in 'Address', with: "123 Summer Street Boston MA 02771"
     fill_in 'Description', with: "Things happened here!"
 
     click_on 'Add Event'
@@ -36,10 +33,7 @@ RSpec.feature 'user can add reviews' do
 
     fill_in 'Name', with: "An Event"
     fill_in 'Date', with: "12/12/12"
-    fill_in 'Address', with: "123 Summer Street"
-    fill_in 'City', with: "Boston"
-    fill_in 'State', with: "MA"
-    fill_in 'Zip code', with: "02999"
+    fill_in 'Address', with: "123 Summer Street Boston MA 02999"
     fill_in 'Description', with: "Things happened here!"
 
     click_on 'Add Event'
@@ -58,10 +52,7 @@ RSpec.feature 'user can add reviews' do
 
     fill_in 'Name', with: "An Event"
     fill_in 'Date', with: "12/12/12"
-    fill_in 'Address', with: "123 Summer Street"
-    fill_in 'City', with: "Boston"
-    fill_in 'State', with: "MA"
-    fill_in 'Zip code', with: "02999"
+    fill_in 'Address', with: "123 Summer Street Boston MA 02999"
     fill_in 'Description', with: "Things happened here!"
 
     click_on 'Add Event'

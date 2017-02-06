@@ -39,6 +39,10 @@
   padding-left: 30px;
 }
 
+.title-text:active, .title-text:hover {
+  color: white;
+}
+
 .title {
   text-align: center;
   color: white;
@@ -61,6 +65,8 @@
 
 .top-bar {
   background-color: transparent;
+  color: white;
+  font-weight: bold;
 }
 
 .top-bar-right {
@@ -103,6 +109,7 @@ a {
 .reviewlist {
   padding-right: 40px;
   padding-top: 40px;
+  padding-bottom: 40px;
   font-size: 20px;
 }
 

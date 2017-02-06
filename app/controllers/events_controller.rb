@@ -4,7 +4,7 @@ class EventsController < ApplicationController
     @event = Event.new
 
     coordinates = @events.map do |event|
-      {lat: event.latitude, lng: event.longitude}
+      { lat: event.latitude, lng: event.longitude }
     end
 
     @coordinates = JSON.unparse(coordinates)
@@ -14,6 +14,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @user = current_user
     @reviews = @event.reviews
+
+    @coordinates = JSON.unparse({ lat: @event.latitude, lng: @event.longitude })
   end
 
   def new
@@ -68,6 +70,6 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :address, :city, :state, :zip_code, :description, :image)
+    params.require(:event).permit(:name, :date, :address, :description, :image)
   end
 end
