@@ -2,6 +2,12 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @event = Event.new
+
+    coordinates = @events.map do |event|
+      {lat: event.latitude, lng: event.longitude}
+    end
+
+    @coordinates = JSON.unparse(coordinates)
   end
 
   def show
