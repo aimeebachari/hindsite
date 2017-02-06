@@ -32,35 +32,46 @@
   </body>
 </html>
 
-<div class="event-show columns large-6 small-12">
-  <h2 class="event-name"> <%= @event.name %> </h2>
+<div class="row container event-show">
+  <div class="event-details columns large-6 small-12">
+    <h2 class="event-name"> <%= @event.name %> </h2>
 
-  <div id="event-details">
-    <p><%= "Date: " %><%= @event.date %></p>
-    <p><%= "Address: " %><%= @event.address %></p>
-    <p><%= @event.description %></p>
-  </div>
-
-  <% if @user.id == @event.user_id || @user.admin? %>
-    <div>
-      <%=link_to 'Edit Event', edit_event_path(@event) %>
+    <div id="event-details">
+      <p>(<%= @event.date %>)</p>
+      <p><%= @event.address %></p>
+      <p><%= @event.description %></p>
     </div>
-  <% end %>
 
-  <div>
-    <%= link_to 'Add Review', new_event_review_path(@event) %>
-  </div>
-</div>
-
-<div class="reviewlist columns large-6 small-12">
-  <div id="ReviewList">
-    <h2>Reviews</h2>
-    <% @reviews.each do |review| %>
-      <p><%= review.body %>
-        <% if @user.id == review.user_id || @user.admin? %>
-          <%= link_to ' | Edit Review', edit_event_review_path(review) %>
-        <% end %>
-      </p>
+    <% if @user.id == @event.user_id || @user.admin? %>
+      <%= link_to 'Edit Event', edit_event_path(@event), class: "button"%>
     <% end %>
+
+    <br>
+  </div>
+
+
+  <div class="reviewlist columns large-6 small-12">
+    <%= form_for [@event, @review] do |f| %>
+
+    <div>
+      <%= f.label :body, "Review" %>
+      <%= f.text_field :body, placeholder: "Add a review" %>
+    </div>
+
+    <div>
+      <%= f.submit "Submit", class: "button" %>
+    </div><br>
+
+    <% end %>
+    <div id="ReviewList">
+      <h2>Reviews</h2>
+      <% @reviews.each do |review| %>
+        <p><%= review.body %>
+          <% if @user.id == review.user_id || @user.admin? %>
+            <%= link_to ' | Edit Review', edit_event_review_path(review) %>
+          <% end %>
+        </p>
+      <% end %>
+    </div>
   </div>
 </div>

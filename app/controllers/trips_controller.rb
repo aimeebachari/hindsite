@@ -16,7 +16,7 @@ class TripsController < ApplicationController
     @events = Event.all
 
     if @trip.save
-      flash[:notice] = "Trip created successfuly!"
+      flash[:notice] = "Trip created successfully!"
       redirect_to @trip
     else
       @trips = Trip.all
@@ -29,8 +29,8 @@ class TripsController < ApplicationController
     @trip = Trip.find(params[:id])
     @user = current_user
 
-    @origin = JSON.unparse({lat: @trip.start_event.latitude, lng: @trip.start_event.longitude})
-    @destination = JSON.unparse({lat: @trip.end_event.latitude, lng: @trip.end_event.longitude})
+    @origin = JSON.unparse({ lat: @trip.start_event.latitude, lng: @trip.start_event.longitude })
+    @destination = JSON.unparse({ lat: @trip.end_event.latitude, lng: @trip.end_event.longitude })
   end
 
   def edit
