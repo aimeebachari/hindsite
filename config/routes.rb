@@ -11,5 +11,9 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  resources :reviews do
+    resources :comments
+  end
+  
   resources :trips
 end
