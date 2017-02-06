@@ -39,6 +39,10 @@
   padding-left: 30px;
 }
 
+.title-text:active, .title-text:hover {
+  color: white;
+}
+
 .title {
   text-align: center;
   color: white;
