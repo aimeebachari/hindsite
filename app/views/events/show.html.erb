@@ -1,36 +1,66 @@
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
 
-<div class="row container show">
+      var centerEvent = <%= @coordinates.html_safe %>
 
-  <div class="event-show columns large-6 small-12">
-    <h2 class="event-name"> <%= @event.name %> </h2>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: centerEvent
+        });
 
-    <div id="event-details">
-      <p><%= "Date: " %><%= @event.date %></p>
-      <p> <%= "Address: " %><%= @event.address %> <%= @event.city %>, <%= @event.state %>, <%= @event.zip_code %> </p>
-      <p><%= @event.description %></p>
-    </div>
+          var marker = new google.maps.Marker({
+            position: <%= @coordinates.html_safe %>,
+            map: map
+          });
+        }
+    </script>
 
-    <% if @user.id == @event.user_id || @user.admin? %>
-      <div>
-        <%=link_to 'Edit Event', edit_event_path(@event) %>
-      </div>
-    <% end %>
+    <script async defer
+    src=<%="https://maps.googleapis.com/maps/api/js?key=#{ENV["GMAPS_API_KEY"]}&callback=initMap"%>>
+    </script>
+  </body>
+</html>
 
-    <div>
-      <%= link_to 'Add Review', new_event_review_path(@event) %>
-    </div>
+<div class="event-show columns large-6 small-12">
+  <h2 class="event-name"> <%= @event.name %> </h2>
+
+  <div id="event-details">
+    <p><%= "Date: " %><%= @event.date %></p>
+    <p><%= "Address: " %><%= @event.address %></p>
+    <p><%= @event.description %></p>
   </div>
 
-    <div class="reviewlist columns large-6 small-12">
-      <div id="ReviewList">
-        <h2>Reviews</h2>
-        <% @reviews.each do |review| %>
-          <p><%= review.body %>
-            <% if @user.id == review.user_id || @user.admin? %>
-              <%= link_to ' | Edit Review', edit_event_review_path(review) %>
-            <% end %>
-          </p>
-        <% end %>
-      </div>
+  <% if @user.id == @event.user_id || @user.admin? %>
+    <div>
+      <%=link_to 'Edit Event', edit_event_path(@event) %>
     </div>
+  <% end %>
+
+  <div>
+    <%= link_to 'Add Review', new_event_review_path(@event) %>
+  </div>
+</div>
+
+<div class="reviewlist columns large-6 small-12">
+  <div id="ReviewList">
+    <h2>Reviews</h2>
+    <% @reviews.each do |review| %>
+      <p><%= review.body %>
+        <% if @user.id == review.user_id || @user.admin? %>
+          <%= link_to ' | Edit Review', edit_event_review_path(review) %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
 </div>
