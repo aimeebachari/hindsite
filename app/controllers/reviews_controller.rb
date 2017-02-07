@@ -20,7 +20,6 @@ class ReviewsController < ApplicationController
       redirect_to @event
     else
       flash.now[:notice] = @review.errors.full_messages.to_sentence
-      render :new
     end
   end
 
