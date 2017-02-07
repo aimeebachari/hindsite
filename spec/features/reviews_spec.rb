@@ -19,15 +19,14 @@ RSpec.feature 'user can add reviews' do
 
     click_on 'Add Event'
 
-    click_on 'Add Review'
     fill_in 'Review', with: "What a great event!"
 
-    click_on 'Submit Review'
+    click_on 'Submit'
 
     expect(page).to have_content("Review created successfully!")
   end
 
-  scenario 'unsuccessfully review' do
+  xscenario 'unsuccessfully review' do
     login_as_user(user_one)
     visit events_path
 
@@ -36,11 +35,12 @@ RSpec.feature 'user can add reviews' do
     fill_in 'Address', with: "123 Summer Street Boston MA 02999"
     fill_in 'Description', with: "Things happened here!"
 
+
     click_on 'Add Event'
 
-    click_on 'Add Review'
+    click_on 'Submit'
 
-    click_on 'Submit Review'
+    fill_in "Review", with: ""
 
     expect(page).to have_content('Body can\'t be blank')
   end
@@ -57,17 +57,15 @@ RSpec.feature 'user can add reviews' do
 
     click_on 'Add Event'
 
-    click_on 'Add Review'
-
     fill_in 'Review', with: "What a great event!"
 
-    click_on 'Submit Review'
+    click_on 'Submit'
 
     click_on 'Edit Review'
 
     fill_in 'Review', with: "That was a great event."
 
-    click_on 'Submit Review'
+    click_on 'Submit'
 
     expect(page).to have_content "Review updated successfully!"
   end
