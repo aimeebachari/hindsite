@@ -134,13 +134,42 @@ input {
 
 .event-details {
   background-color: #ffffff ;
-  border: 1px solid black;
   opacity: 0.8;
   filter: alpha(opacity=70);
   font-weight: bold;
   color: black;
   overflow: auto;
   padding-top: 20px;
+}
+
+.trips-list-links {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.trips-list-links:hover {
+  color: black;
+}
+
+.review-index {
+  background-color: #E8D5B7 ;
+  opacity: 0.8;
+  filter: alpha(opacity=70);
+  font-weight: bold;
+  color: black;
+  overflow: auto;
+  text-align: left;
+  padding: 10px;
+}
+
+.reviews-list-title {
+  text-align: center;
+}
+
+.edit-review-link {
+  color: black;
+  font-size: 15px;
 }
 
 .trips-list {
@@ -185,6 +214,10 @@ input {
   color: black;
 }
 
+h4 {
+  font-family: 'Noto Serif', serif;
+}
+
 .trip-show {
   padding-top: 40px;
 }
@@ -193,11 +226,13 @@ input {
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     border-radius: 25px;
+    font-weight: bold;
 }
 
 .button:hover {
     background-color: #E8D5B7;
     color: black;
+    font-weight: bold;
 }
 
 .alert {
@@ -206,9 +241,12 @@ input {
 
 .reviewlist {
   padding-right: 40px;
-  padding-top: 40px;
   padding-bottom: 40px;
   font-size: 20px;
+}
+
+.review-form-title {
+  text-align: center;
 }
 
 .link-to-trips {

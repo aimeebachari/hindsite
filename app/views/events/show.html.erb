@@ -4,7 +4,7 @@
     <style>
        #map {
         height: 400px;
-        width: 97%;
+        width: 100%;
        }
     </style>
   </head>
@@ -16,7 +16,7 @@
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 11,
+          zoom: 15,
           center: centerEvent
         });
 
@@ -35,7 +35,7 @@
 </div>
 
 <div class="row container event-show">
-  <div class="event-details columns large-6 small-12">
+  <div class="event-details columns large-5 small-12">
     <h2 class="event-name"> <%= @event.name %> </h2>
 
     <div id="event-details">
@@ -44,15 +44,20 @@
       <p><%= @event.description %></p>
     </div>
 
+    <%= button_to "Back", events_path, method: :get, class: "button" %>
+
     <% if @user.id == @event.user_id || @user.admin? %>
-      <%= link_to 'Edit Event', edit_event_path(@event), class: "button"%>
+      <%= button_to 'Edit Event', edit_event_path(@event), method: :get, class: "button"%>
     <% end %>
 
     <br>
   </div>
 
+  <div class="columns large-2 small-0"></div>
 
-  <div class="reviewlist columns large-6 small-12">
+
+  <div class="reviewlist columns large-5 small-12">
+    <h2 class="review-form-title">Add a Review</h2>
     <%= form_for [@event, @review] do |f| %>
 
     <div>
@@ -66,11 +71,11 @@
 
     <% end %>
     <div id="ReviewList">
-      <h2>Reviews</h2>
+      <h2 class="reviews-list-title">Reviews</h2>
       <% @reviews.each do |review| %>
-        <p><%= review.body %>
+        <p class="review-index"><%= review.body %>
           <% if @user.id == review.user_id || @user.admin? %>
-            <%= link_to ' | Edit Review', edit_event_review_path(review) %>
+            <%= link_to ' | Edit Review', edit_event_review_path(review), class: "edit-review-link" %>
           <% end %>
         </p>
       <% end %>

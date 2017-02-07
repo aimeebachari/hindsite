@@ -11,9 +11,15 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
-  resources :reviews do
-    resources :comments
-  end
-  
+  resources :reviews
+
   resources :trips
+
+  namespace :api do
+    namespace :v1 do
+      resources :reviews do
+        resources :comments
+      end
+    end
+  end
 end
