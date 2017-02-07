@@ -1,10 +1,10 @@
-
+<div class="row container">
 <html>
   <head>
     <style>
        #map {
         height: 400px;
-        width: 100%;
+        width: 97%;
        }
     </style>
   </head>
@@ -36,19 +36,22 @@
     </script>
   </body>
 </html>
+</div>
 
-<div class="events-list columns large-6 small-12">
-  <h3>Historical Places or Events</h3>
-  <div id="events">
-      <% @events.each do |event| %>
-        <p><%= link_to "#{event.name}", event_path(event) %></p>
-      <% end %>
+<div class="row">&nbsp;</div>
+<div class="row container">
+  <div class="events-list columns large-5 small-12">
+    <div>
+        <% @events.each do |event| %>
+          <p><%= link_to "#{event.name}", event_path(event), class: "events" %></p>
+        <% end %>
+    </div>
+  </div>
+
+  <div class="event-form columns large-6 small-12">
+    <h3 class="place-form-title">Add a Historical Place</h3>
+
+    <%= render 'form' %>
   </div>
 </div>
-
-<div class="event-form columns large-6 small-12">
-  <h3>Add a Historical Place or Event</h3>
-
-  <%= render 'form' %>
-</div>
-</div>
+<div class="row">&nbsp;</div>
