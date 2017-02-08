@@ -4,25 +4,6 @@ class ReviewsController < ApplicationController
     @reviews = Review.all
   end
 
-  def new
-    @event = Event.find(params[:event_id])
-    @review = Review.new
-  end
-
-  def create
-    @user = current_user
-    @event = Event.find(params[:event_id])
-    @review = Review.new(review_params)
-    @review.event = @event
-    @review.user = @user
-    if @review.save
-      flash[:alert] = "Review created successfully!"
-      redirect_to @event
-    else
-      flash.now[:notice] = @review.errors.full_messages.to_sentence
-    end
-  end
-
   def edit
     @review = Review.find(params[:id])
     @event = @review.event

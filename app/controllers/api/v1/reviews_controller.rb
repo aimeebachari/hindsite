@@ -1,17 +1,18 @@
 class Api::V1::ReviewsController < ApplicationController
-  skip_before_filter :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
 
   def create
-    review = Review.create(review_params)
+    data = request.body.read
+    info_hash = JSON.parse(data)
+    @body = info_hash["body"]
+    @event_id = info_hash["event_id"]
+
+    review = Review.create!(body: @body, event_id: @event_id)
+    reviews = Review.all
 
     if review.save
-      render json: { review: review }
+      render json: { review: reviews }
     end
   end
 
-  private
-
-  def review_params
-    params.permit(:body).merge(user: current_user).merge(event_id: params["event_id"])
-  end
 end

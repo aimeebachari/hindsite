@@ -59,16 +59,7 @@
   <div class="reviewlist columns large-5 small-12">
     <div id="reviewList" data-id="<%= @event.id %>"></div>
     <div>
-      <h2 class="reviews-list-title">Reviews</h2>
-      <div id="reviews">
-        <% @reviews.each do |review| %>
-          <p class="review-index"><%= review.body %>
-            <% if @user.id == review.user_id || @user.admin? %>
-              <%= link_to ' | Edit Review', edit_event_review_path(review), class: "edit-review-link" %>
-            <% end %>
-          </p>
-        <% end %>
-      </div>
+      <div id="reviews"></div>
     </div>
   </div>
 </div>

@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import Reviews from "./Reviews";
+import Form from "./Form";
 
 class ReviewList extends Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
-
+    this.state = {
+    reviews: [],
+    value: ''
+  };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -16,46 +20,56 @@ class ReviewList extends Component {
   handleSubmit(event){
     event.preventDefault();
     let eventId = parseInt(document.getElementById('reviewList').dataset.id);
+    let newReviews = [];
     fetch(
-      '/api/v1/reviews',
+      `/api/v1/events/${eventId}/reviews`,
       {
         credentials: 'same-origin',
         method: 'post',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ body: this.state.value, event_id: pathEventId })
+        body: JSON.stringify({ body: this.state.value, event_id: eventId })
       }
-    ).then(
-      (response) => {
-        if (response.status === 200) {
-          // add javascript to clear out form, has classname of "review-input"
-          let node = document.createElement("p");
-          node.className = "review-index";
-          let textnode = document.createTextNode(this.state.value);
-          node.appendChild(textnode);
+    ).then(function(response) {
+      newReviews = response.json();
+      return newReviews;
+    }).then((response) => {
+      this.setState({
+      reviews: response,
+    });
+    });
+  }
 
-          let nodeLink = document.createElement("a");
-          nodeLink.className = "edit-review-link";
-
-          //replace the 1 below with the real ID.
-          nodeLink.href = `/events/${pathEventId}/reviews/${1}/edit`;
-          let nodeLinkText = document.createTextNode("| Edit Review");
-          nodeLink.appendChild(nodeLinkText);
-          node.appendChild(nodeLink);
-
-          document.getElementById("reviews").appendChild(node);
-        }
-      }
-    );
+  componentDidMount() {
+    let eventId = parseInt(document.getElementById('reviewList').dataset.id);
+    $.ajax({
+      method: "GET",
+      url: `../api/v1/events/${eventId}.json`,
+    }).done(data => {
+      this.setState({
+        reviews: data.reviews
+      });
+    });
   }
 
   render() {
+    let reviews = this.state.reviews.map(review => {
+      return(
+        <Reviews
+        key={review.id}
+        id={review.id}
+        eventId={review.event_id}
+        body={review.body}
+        />
+      );
+    });
     return (
       <div>
         <h2 className="review-form-title">Add a Review</h2>
-        <form onSubmit={this.handleSubmit}>
-          <input className="input" type='text' className="review-input" placeholder="Enter your review"  onChange={this.handleChange}/>
-          <input type="submit" className="button" value="Submit" />
-        </form>
+        <Form
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+        />
+        <h2 className="reviews-list-title">Reviews</h2>
+        {reviews}
       </div>
     );
   }
