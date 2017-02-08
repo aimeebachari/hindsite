@@ -23,12 +23,28 @@
 
         for (var i = 0; i < otherEvents.length; i++) {
           var latLng = new google.maps.LatLng(otherEvents[i].lat, otherEvents[i].lng);
-          var marker = new google.maps.Marker({
+          let marker = new google.maps.Marker({
             position: latLng,
+            animation: google.maps.Animation.DROP,
             map: map
           });
-        }
-      }
+
+           var message = `${otherEvents[i].name}`;
+           function addInfoWindow(marker, message) {
+
+               var infoWindow = new google.maps.InfoWindow({
+                   content: message
+               });
+
+               google.maps.event.addListener(marker, 'click', function() {
+                   infoWindow.open(map, marker);
+               });
+             }
+
+               marker.addListener('click', addInfoWindow(marker, message));
+             }
+           }
+
 
     </script>
     <script async defer

@@ -4,7 +4,7 @@ class EventsController < ApplicationController
     @event = Event.new
 
     coordinates = @events.map do |event|
-      { lat: event.latitude, lng: event.longitude }
+      { lat: event.latitude, lng: event.longitude, name: event.name }
     end
 
     @coordinates = JSON.unparse(coordinates)
@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     @user = current_user
     @reviews = @event.reviews
 
-    @coordinates = JSON.unparse({ lat: @event.latitude, lng: @event.longitude })
+    @coordinates = JSON.unparse({ lat: @event.latitude, lng: @event.longitude, name: @event.name })
   end
 
   def new
