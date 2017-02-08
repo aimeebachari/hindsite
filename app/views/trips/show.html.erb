@@ -54,12 +54,11 @@
 
     <h4><%= @trip.end_event.name %></h4>
     <p><%= @trip.end_event.address %></p>
-    <p><%= @trip.end_event.description %></p><br>
+    <p><%= @trip.end_event.description %></p>
 
     <% if @user.admin? %>
-      <%= link_to "Delete Trip", trip_path(@trip), class: "delete-link", method: :delete %><br>
+      <%= link_to "Delete Trip", trip_path(@trip), class: "delete-link", method: :delete %>
     <% end %>
-    <div>&nbsp;</div>
     <p><%= button_to "Back", trips_path, method: :get, class: "button" %></p>
 </div>
 </div>

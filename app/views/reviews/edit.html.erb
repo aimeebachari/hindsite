@@ -6,6 +6,6 @@
 
     <%= render 'form' %><br />
 
-    <%= link_to "Delete", event_review_path, method: :delete, data: {confirm: "Are you sure?"} %>
+    <%= button_to "Delete", event_review_path, method: :delete, class: "button", data: {confirm: "Are you sure?"} %>
   </div>
 </div>
