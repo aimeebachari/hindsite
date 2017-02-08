@@ -5,7 +5,7 @@ class Api::V1::ReviewsController < ApplicationController
     review = Review.create(review_params)
 
     if review.save
-      render json: {review: review}
+      render json: { review: review }
     end
   end
 

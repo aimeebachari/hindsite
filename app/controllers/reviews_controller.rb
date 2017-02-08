@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:event_id])
+    @review = Review.find(params[:id])
     @event = @review.event
     @user = current_user
 

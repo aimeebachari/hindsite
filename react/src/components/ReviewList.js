@@ -10,20 +10,19 @@ class ReviewList extends Component {
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({ value: event.target.value });
   }
 
   handleSubmit(event){
     event.preventDefault();
-    let pathArray = window.location.href.split('/');
-    let pathEventId = pathArray[pathArray.length - 1];
+    let eventId = parseInt(document.getElementById('reviewList').dataset.id);
     fetch(
       '/api/v1/reviews',
       {
         credentials: 'same-origin',
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({body: this.state.value, event_id: pathEventId})
+        body: JSON.stringify({ body: this.state.value, event_id: pathEventId })
       }
     ).then(
       (response) => {
