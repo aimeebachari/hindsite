@@ -10,6 +10,19 @@
   font-weight: bold;
 }
 
+.edit-review {
+  padding-top: 40px;
+  pading-left: 40px;
+}
+
+.edit-delete-links {
+  color: red;
+}
+
+.edit-delete-links:hover {
+  color: black;
+}
+
 #map {
   color: black;
 }
@@ -90,6 +103,9 @@ h2 {
   padding-top: 40px;
   padding-left: 40px;
 }
+.nav-links:hover {
+  color: white;
+}
 
 .top-bar {
   background-color: transparent;
@@ -138,13 +154,42 @@ input {
 
 .event-details {
   background-color: #ffffff ;
-  border: 1px solid black;
   opacity: 0.8;
   filter: alpha(opacity=70);
   font-weight: bold;
   color: black;
   overflow: auto;
   padding-top: 20px;
+}
+
+.trips-list-links {
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.trips-list-links:hover {
+  color: black;
+}
+
+.review-index {
+  background-color: #E8D5B7 ;
+  opacity: 0.8;
+  filter: alpha(opacity=70);
+  font-weight: bold;
+  color: black;
+  overflow: auto;
+  text-align: left;
+  padding: 10px;
+}
+
+.reviews-list-title {
+  text-align: center;
+}
+
+.edit-review-link {
+  color: black;
+  font-size: 15px;
 }
 
 .trips-list {
@@ -170,7 +215,8 @@ input {
   overflow: auto;
   padding-top: 20px;
   vertical-align: center;
-  height: 600px;
+  padding-left: 40px;
+  padding-right: 20px;
 }
 
 .delete-link {
@@ -189,6 +235,10 @@ input {
   color: black;
 }
 
+h4 {
+  font-family: 'Noto Serif', serif;
+}
+
 .trip-show {
   padding-top: 40px;
 }
@@ -197,11 +247,13 @@ input {
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     border-radius: 25px;
+    font-weight: bold;
 }
 
 .button:hover {
     background-color: #E8D5B7;
     color: black;
+    font-weight: bold;
 }
 
 .alert {
@@ -210,9 +262,12 @@ input {
 
 .reviewlist {
   padding-right: 40px;
-  padding-top: 40px;
   padding-bottom: 40px;
   font-size: 20px;
+}
+
+.review-form-title {
+  text-align: center;
 }
 
 .link-to-trips {
@@ -251,10 +306,6 @@ a.navbar-link:hover {
   padding-bottom: 40px;
 }
 
-.trip-details {
-  padding-left: 40px;
-  padding-right: 20px;
-}
 .events:hover {
   color:black;
 }

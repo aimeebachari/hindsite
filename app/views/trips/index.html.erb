@@ -3,7 +3,7 @@
   <div class="trips-list columns large-6 small-12">
     <h3 class="trips-index-title">HindSite Trips</h3>
       <% @trips.each do |trip| %>
-        <p class="trips-list-links"><%= link_to "#{trip.name}", trip_path(trip) %></p>
+        <p><%= link_to "#{trip.name}", trip_path(trip),  class: "trips-list-links" %></p>
       <% end %>
   </div>
 

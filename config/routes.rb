@@ -11,5 +11,15 @@ Rails.application.routes.draw do
     resources :reviews
   end
 
+  resources :reviews
+
   resources :trips
+
+  namespace :api do
+    namespace :v1 do
+      resources :events, only: [:show] do
+        resources :reviews, only: [:get, :create]
+      end
+    end
+  end
 end
