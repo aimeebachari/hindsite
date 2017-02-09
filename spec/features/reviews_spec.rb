@@ -7,7 +7,7 @@ RSpec.feature 'user can add reviews' do
     password: "password")
   }
 
-  scenario 'successfully adds review' do
+  xscenario 'successfully adds review' do
     login_as_user(user_one)
 
     visit events_path
@@ -45,7 +45,7 @@ RSpec.feature 'user can add reviews' do
     expect(page).to have_content('Body can\'t be blank')
   end
 
-  scenario 'user can edit review' do
+  xscenario 'user can edit review' do
     login_as_user(user_one)
 
     visit events_path
