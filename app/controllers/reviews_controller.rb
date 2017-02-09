@@ -8,6 +8,11 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @event = @review.event
     @user = current_user
+  end
+
+  def update
+    @review = Review.find(params[:id])
+    @event = @review.event
 
     if @user.id == @review.user_id || @user.admin?
       render :edit
@@ -15,11 +20,7 @@ class ReviewsController < ApplicationController
       flash[:alert] = "You do not have permission to edit this review!"
       redirect_to @event
     end
-  end
 
-  def update
-    @review = Review.find(params[:id])
-    @event = @review.event
     if @review.update(review_params)
       flash[:alert] = "Review updated successfully!"
       redirect_to @event

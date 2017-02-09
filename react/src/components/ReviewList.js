@@ -28,13 +28,12 @@ class ReviewList extends Component {
         method: 'post',
         body: JSON.stringify({ body: this.state.value, event_id: eventId })
       }
-    ).then(function(response) {
-      newReviews = response.json();
-      return newReviews;
-    }).then((response) => {
+    ).then((response) => {
+      return response.json();
+    }).then((newReviews) => {
       this.setState({
-      reviews: response,
-    });
+        reviews: newReviews,
+      });
     });
   }
 
@@ -52,13 +51,14 @@ class ReviewList extends Component {
 
   render() {
     let reviews = this.state.reviews.map(review => {
+      let currentUserId = parseInt(document.getElementById('currentUser').dataset.id);
       return(
         <Reviews
         key={review.id}
         id={review.id}
         eventId={review.event_id}
         body={review.body}
-        />
+        showEditLink={ (currentUserId === review.user_id) ? true: false} />
       );
     });
     return (

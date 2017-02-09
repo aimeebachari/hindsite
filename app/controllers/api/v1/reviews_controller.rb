@@ -7,11 +7,10 @@ class Api::V1::ReviewsController < ApplicationController
     @body = info_hash["body"]
     @event_id = info_hash["event_id"]
 
-    review = Review.create!(body: @body, event_id: @event_id)
-    reviews = Review.all
+    review = Review.new(body: @body, event_id: @event_id, user: current_user)
 
     if review.save
-      render json: { review: reviews }
+      render json: Review.all
     end
   end
 

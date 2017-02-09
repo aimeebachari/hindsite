@@ -10,6 +10,19 @@
   font-weight: bold;
 }
 
+.edit-review {
+  padding-top: 40px;
+  pading-left: 40px;
+}
+
+.edit-delete-links {
+  color: red;
+}
+
+.edit-delete-links:hover {
+  color: black;
+}
+
 #map {
   color: black;
 }
@@ -89,6 +102,9 @@ h2 {
 .forgot-email {
   padding-top: 40px;
   padding-left: 40px;
+}
+.nav-links:hover {
+  color: white;
 }
 
 .top-bar {
@@ -199,7 +215,8 @@ input {
   overflow: auto;
   padding-top: 20px;
   vertical-align: center;
-  height: 600px;
+  padding-left: 40px;
+  padding-right: 20px;
 }
 
 .delete-link {
@@ -289,10 +306,6 @@ a.navbar-link:hover {
   padding-bottom: 40px;
 }
 
-.trip-details {
-  padding-left: 40px;
-  padding-right: 20px;
-}
 .events:hover {
   color:black;
 }
