@@ -5,7 +5,7 @@ const Reviews = props => {
       return(
       <div>
         <p className="review-index">{props.body}<br />
-          <a className="edit-delete-links" href={`/reviews/${props.id}/edit`}> Edit | Delete</a>
+          <a className="edit-delete-links" href={`/reviews/${props.id}/edit`}> Edit</a>
         </p>
       </div>
     );

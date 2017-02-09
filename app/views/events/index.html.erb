@@ -1,14 +1,13 @@
-<div class="row container">
 <html>
   <head>
     <style>
        #map {
         height: 400px;
-        width: 97%;
        }
     </style>
   </head>
   <body>
+    <div class="index-map row container">
     <div id="map"></div>
     <script>
 
@@ -50,9 +49,9 @@
     <script async defer
     src=<%="https://maps.googleapis.com/maps/api/js?key=#{ENV["GMAPS_API_KEY"]}&callback=initMap"%>>
     </script>
+  </div>
   </body>
 </html>
-</div>
 
 <div class="row">&nbsp;</div>
 <div class="row container">

@@ -10,7 +10,7 @@ class Api::V1::ReviewsController < ApplicationController
     review = Review.new(body: @body, event_id: @event_id, user: current_user)
 
     if review.save
-      render json: Review.all
+      render json: Review.where(event_id: @event_id)
     end
   end
 

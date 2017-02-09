@@ -1,8 +1,11 @@
+<body class="home">
 <div class="row container text-center">
   <div class="title columns large-12 small-12">
     <p> HindSite </p>
   </div>
+</div>
 
+<div class="row container">
   <div class="places-link columns large-6 small-12">
     <%= link_to 'Historical Places', events_path, class: "home-links" %>
   </div>
@@ -11,3 +14,12 @@
     <%= link_to 'Historical Trips', trips_path, class: "home-links" %>
   </div>
 </div>
+
+<div>&nbsp</div>
+
+<div class="row container">
+  <div class="geolocation-link columns large-12 small-12">
+    <%= link_to 'Places Near Me', geolocation_index_path, class: "home-links" %>
+  </div>
+</div>
+</body>
