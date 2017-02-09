@@ -34,6 +34,7 @@ class ReviewList extends Component {
       this.setState({
         reviews: newReviews,
       });
+      $(".review-input")[0].value = "";
     });
   }
 
@@ -69,7 +70,7 @@ class ReviewList extends Component {
           handleChange={this.handleChange}
         />
         <h2 className="reviews-list-title">Reviews</h2>
-        {reviews}
+        {reviews.length === 0 ? <span className="first-review">Be the first to review!</span> : reviews}
       </div>
     );
   }

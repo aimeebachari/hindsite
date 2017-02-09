@@ -16,7 +16,7 @@
 }
 
 .edit-delete-links {
-  color: red;
+  color: #1779ba;
 }
 
 .edit-delete-links:hover {
@@ -48,7 +48,6 @@ h2 {
 }
 
 .trips-index {
-  padding-top: 40px;
   text-align: center;
 }
 
@@ -111,21 +110,35 @@ h2 {
   background-color: transparent;
   color: white;
   font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .top-bar-right {
   padding-right: 20px;
 }
 
+.first-review {
+  text-align: center;
+}
+
 body {
+  background-color: #9B8E7E;
+  font-family: 'Noto Serif', serif;
+  color: white;
+}
+
+@media only screen and (max-width: 40em) {
+  .top-bar-right {display: none;}
+}
+
+body.home {
   background-image:       linear-gradient(
     rgba(115, 70, 28, 0.5),
     rgba(115, 70, 28, 0.5)
     ),
     url("/assets/home.jpg");
   background-size: cover;
-  color: white;
-  font-family: 'Noto Serif', serif;
 }
 
 label {
@@ -142,6 +155,18 @@ input {
   font-size: 50px;
 }
 
+.geolocation-link {
+  text-align: center;
+}
+
+.trips-link {
+  text-align: center;
+}
+
+.places-link {
+  text-align: center;
+}
+
 .home-links:hover {
   color: white;
 }
@@ -150,6 +175,7 @@ input {
   padding-left: 40px;
   padding-top: 40px;
   font-size: 20px;
+  padding-bottom: 40px;
 }
 
 .event-details {
@@ -173,7 +199,7 @@ input {
 }
 
 .review-index {
-  background-color: #E8D5B7 ;
+  background-color: #DAD6CA ;
   opacity: 0.8;
   filter: alpha(opacity=70);
   font-weight: bold;
@@ -201,9 +227,8 @@ input {
   overflow: auto;
   padding-left: 20px;
   color: black;
-  height: 600px;
-  width: 500px;
   padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .trip-details {
@@ -315,9 +340,13 @@ a.navbar-link:hover {
 }
 
 .title {
-  padding-top: 100px;
+  padding-top: 50px;
   font-size: 200px;
   font-family: 'Homemade Apple', cursive;
+}
+
+.geo-map {
+  padding-top: 40px;
 }
 
 .cancel {
@@ -340,9 +369,4 @@ a.navbar-link:hover {
 
 .edit-delete-trip {
   padding-left: 40px;
-}
-
-.event-show {
-  padding-left: 40px;
-  padding-bottom: 40px;
 }
