@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root "home#index"
   resources :home, only: [:index]
 
+  resources :geolocation, only: [:index]
+
   devise_for :users
 
   resources :users, only: [:index, :show]
