@@ -191,14 +191,7 @@ input {
   color: white;
 }
 
-.event-show {
-  padding-left: 40px;
-  padding-top: 40px;
-  font-size: 20px;
-  padding-bottom: 40px;
-}
-
-.event-details {
+.events-list {
   background-color: #ffffff ;
   opacity: 0.8;
   filter: alpha(opacity=70);
@@ -346,8 +339,6 @@ a.navbar-link:hover, a.navbar-link:active, a.navbar-link:focus {
   padding-top: 40px;
   text-align: left;
 }
-
-
 
 .edit-user {
   padding-left: 40px;
