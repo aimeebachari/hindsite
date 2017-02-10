@@ -29,6 +29,8 @@ front-page-link {
 
 #map {
   color: black;
+  font-weight: bold;
+  font-size: 15px;
 }
 
 a {
@@ -83,8 +85,12 @@ h2 {
   padding-left: 30px;
 }
 
-.title-text:active, .title-text:hover {
+.title-link:active, .title-link:hover, .title-link:active, .title-link:focus {
   color: white;
+}
+
+.geo-map {
+  padding-bottom: 40px;
 }
 
 .title {
@@ -144,6 +150,10 @@ body {
   .top-bar-right {display: none;}
   .nav-links {display: none;}
   .space {display: none;}
+}
+
+@media only screen and (min-width: 41em) {
+  .top-bar-left {display: none;}
 }
 
 body.home {
