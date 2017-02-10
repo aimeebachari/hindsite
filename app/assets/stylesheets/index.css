@@ -19,6 +19,10 @@
   color: #1779ba;
 }
 
+front-page-link {
+  padding-top: 20px;
+}
+
 .edit-delete-links:hover {
   color: black;
 }
@@ -129,7 +133,17 @@ body {
 }
 
 @media only screen and (max-width: 40em) {
+  .hindsite {
+    font-size: 60px;
+    font-family: 'Homemade Apple', cursive;
+  }
+  a.home-links {
+    font-size: 25px;
+    font-family: 'Noto Serif', serif;
+  }
   .top-bar-right {display: none;}
+  .nav-links {display: none;}
+  .space {display: none;}
 }
 
 body.home {
@@ -339,10 +353,15 @@ a.navbar-link:hover {
   padding-bottom: 40px;
 }
 
-.title {
+@media only screen and (mid-width: 41em) {
+  .hindsite {
+    font-size: 200px;
+    font-family: 'Homemade Apple', cursive;
+  }
+}
+
+.front-page-link {
   padding-top: 50px;
-  font-size: 200px;
-  font-family: 'Homemade Apple', cursive;
 }
 
 .geo-map {
