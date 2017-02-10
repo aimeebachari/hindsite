@@ -1,6 +1,6 @@
 
 <div class="row container">
-  <div class="edit-user columns large-6 small-12">
+  <div class="edit-user columns large-5 small-12">
     <h3>Edit Info</h3>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -37,13 +37,16 @@
         <%= f.submit "Update", class: "button" %>
       </div>
     <% end %>
+    <div class="cancel">
+      <h3>Cancel my account</h3>
+
+      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: "button", data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+      <%= button_to "Back", :back, method: :get, class: "button" %>
+    </div>
   </div>
 
-  <div class="cancel columns large-6 small-12">
-    <h3>Cancel my account</h3>
-
-    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), class: "button", data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-    <%= button_to "Back", :back, method: :get, class: "button" %>
+  <div class="columns large-6 small-12">
+    <%= image_tag("boston 2.jpg") %>
   </div>
 </div>

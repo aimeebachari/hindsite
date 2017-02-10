@@ -62,8 +62,9 @@ class EventsController < ApplicationController
     if @user.id == @event.user_id || @user.admin?
       Event.destroy(params[:id])
       redirect_to events_path
+      flash[:notice] = "Historical place successfully deleted."
     else
-      flash[:notice] = "You don't have permission to delete this event!"
+      flash[:notice] = "You don't have permission to delete this place!"
       redirect_to @event
     end
   end

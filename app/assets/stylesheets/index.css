@@ -321,12 +321,13 @@ h4 {
   color:black;
 }
 
-a.navbar-link:hover {
+a.navbar-link:hover, a.navbar-link:active, a.navbar-link:focus {
   color: white;
 }
 
 .trips-index-title {
   font-family: 'Homemade Apple', cursive;
+  color: black;
 }
 
 .new-trip-title {
@@ -338,6 +339,8 @@ a.navbar-link:hover {
   padding-top: 40px;
   text-align: left;
 }
+
+
 
 .edit-user {
   padding-left: 40px;
@@ -353,7 +356,7 @@ a.navbar-link:hover {
   padding-bottom: 40px;
 }
 
-@media only screen and (mid-width: 41em) {
+@media only screen and (min-width: 41em) {
   .hindsite {
     font-size: 200px;
     font-family: 'Homemade Apple', cursive;
@@ -370,7 +373,6 @@ a.navbar-link:hover {
 
 .cancel {
   padding-top: 40px;
-  padding-left: 40px;
 }
 
 .new-review {

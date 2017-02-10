@@ -1,15 +1,13 @@
 
-<div class="trips-index row container">
-  <div class="trips-list columns large-5 small-12">
+<div class="row container">
+  <div class="events-list columns large-5 small-12">
     <h3 class="trips-index-title">HindSite Trips</h3><br>
       <% @trips.each do |trip| %>
         <p><%= link_to "#{trip.name}", trip_path(trip),  class: "trips-list-links" %></p>
       <% end %>
   </div>
 
-  <div class="columns large-2 small-0"></div>
-
-  <div class="new-trip columns large-5 small-12">
+  <div class="new-trip columns large-6 small-12">
     <%= render 'form' %>
   </div>
 </div>
