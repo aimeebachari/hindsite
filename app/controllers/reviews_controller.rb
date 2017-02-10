@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @event = @review.event
 
-    if @user.id == @review.user_id || @user.admin?
+    if current_user.id == @review.user_id || current_user.admin?
       render :edit
     else
       flash[:alert] = "You do not have permission to edit this review!"
