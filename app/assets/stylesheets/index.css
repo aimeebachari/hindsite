@@ -152,10 +152,6 @@ body {
   .space {display: none;}
 }
 
-@media only screen and (min-width: 41em) {
-  .top-bar-left {display: none;}
-}
-
 body.home {
   background-image:       linear-gradient(
     rgba(115, 70, 28, 0.5),
