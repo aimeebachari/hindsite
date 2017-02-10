@@ -14,13 +14,6 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @event = @review.event
 
-    if current_user.id == @review.user_id || current_user.admin?
-      render :edit
-    else
-      flash[:alert] = "You do not have permission to edit this review!"
-      redirect_to @event
-    end
-
     if @review.update(review_params)
       flash[:alert] = "Review updated successfully!"
       redirect_to @event
