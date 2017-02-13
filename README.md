@@ -1,7 +1,5 @@
 
  ![Codeship Status for aimeebachari/hindsite](https://app.codeship.com/projects/3813f5b0-c7ed-0134-81ec-26a273d7f22c/status?branch=master)
- ![Code Climate](https://codeclimate.com/github/aimeebachari/hindsite.png)
- ![Coverage Status](https://coveralls.io/repos/aimeebachari/hindsite/badge.png)  
 
 # Hindsite
 
