@@ -33,24 +33,6 @@ class TripsController < ApplicationController
     @destination = JSON.unparse({ lat: @trip.end_event.latitude, lng: @trip.end_event.longitude })
   end
 
-  def edit
-    @trip = Trip.find(params[:id])
-    @user = current_user
-    if @user.id == @trip.user_id || @user.admin?
-      render :edit
-    end
-  end
-
-  def update
-    @trip = Trip.find(params[:id])
-    if @trip.update(trip_params)
-      redirect_to trip_path
-    else
-      flash.now[:notice] = @trip.errors.full_messages.to_sentence
-        render :edit
-    end
-  end
-
   def destroy
     @trip = Trip.find(params[:id])
     @user = current_user
