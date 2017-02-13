@@ -40,9 +40,6 @@ class TripsController < ApplicationController
       Trip.destroy(params[:id])
       flash[:notice] = "Trip successfully deleted."
       redirect_to trips_path
-    else
-      flash[:notice] = "You do not have permission to delete this trip."
-      redirect_to @trip
     end
   end
 

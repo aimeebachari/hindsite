@@ -61,6 +61,30 @@ RSpec.feature 'user can add events' do
     expect(page).to have_content "Event successfully updated"
   end
 
+  scenario 'user unsuccessfully edits event they created' do
+    login_as_user(user_one)
+
+    visit events_path
+
+    fill_in "Name", with: "New Event"
+    fill_in "Date", with: "1776"
+    fill_in "Address", with: "77 Summer St. Boston, MA 02111"
+    fill_in "Description", with: "Something important happened here."
+
+    click_on "Add Event"
+
+    click_on "Edit Event"
+
+    fill_in "Name", with: "Historic Place"
+    fill_in "Date", with: ""
+    fill_in "Address", with: "77 Summer St. Boston, MA 02111"
+    fill_in "Description", with: "Something important happened here."
+
+    click_on "Update"
+
+    expect(page).to have_content "Date can't be blank"
+  end
+
   scenario 'user can delete an event they created' do
     login_as_user(user_one)
 

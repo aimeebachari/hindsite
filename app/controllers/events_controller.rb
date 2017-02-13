@@ -71,9 +71,6 @@ class EventsController < ApplicationController
       Event.destroy(params[:id])
       redirect_to events_path
       flash[:notice] = "Historical place successfully deleted."
-    else
-      flash[:notice] = "You don't have permission to delete this place!"
-      redirect_to @event
     end
   end
 
