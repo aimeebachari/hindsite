@@ -31,6 +31,13 @@ class EventsController < ApplicationController
       redirect_to @event
     else
       @events = Event.all
+
+      coordinates = @events.map do |event|
+        { lat: event.latitude, lng: event.longitude, name: event.name }
+      end
+
+      @coordinates = JSON.unparse(coordinates)
+
       flash.now[:notice] = @event.errors.full_messages.to_sentence
       render :index
     end
