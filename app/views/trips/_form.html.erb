@@ -7,12 +7,12 @@
     <%= f.text_field :name %>
   </div>
 
-  <div>
+  <div class="start-event">
     <%= f.label :start_event %>
     <%= f.collection_select :start_event_id, @events, :id, :name, prompt: "Select a Starting Point"  %>
   </div>
 
-  <div>
+  <div class="end-event">
     <%= f.label :end_event %>
     <%= f.collection_select :end_event_id, @events, :id, :name, prompt: "Select an Ending Point" %>
   </div>

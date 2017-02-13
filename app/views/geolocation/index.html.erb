@@ -46,7 +46,7 @@
                 map.setCenter(pos);
               }, function() {
                 handleLocationError(true, infoWindow, map.getCenter());
-              });
+              }, {timeout: 10000});
             } else {
               handleLocationError(false, infoWindow, map.getCenter());
             }
