@@ -1,9 +1,35 @@
 
 <div class="row container">
   <div class="edit-event">
-    <h3> Edit Historical Place or Event </h3>
+    <h3> <%= "Edit #{@event.name}" %></h3>
 
-      <%= render 'form' %><br />
+    <%= form_for(@event) do |f| %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: "Historical Event or Place Name" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :date %>
+      <%= f.text_field :date, placeholder: "Date" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :address %>
+      <%= f.text_field :address, placeholder: "Enter Address, City, State, and Zipcode" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_field :description, placeholder: "Description" %>
+    </div>
+
+    <div class="field">
+      <%= f.submit(value="Update", class: "actions button") %>
+    </div>
+
+    <% end %>
 
       <%= link_to "Delete", @event, method: :delete, class: "button", data: {confirm: "Are you sure?"} %>
   </div>

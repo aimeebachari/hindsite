@@ -1,53 +1,112 @@
 require 'rails_helper'
 
-RSpec.feature 'user can add reviews' do
+RSpec.feature 'user can add trips' do
 
-  let(:user_one) { User.create(
+  let(:user_one) do User.create(
     email: "123@gmail.com",
     password: "password",
     role: "admin")
-  }
+  end
 
-  xscenario 'successfully adds a trip' do
+  scenario 'successfully adds a trip' do
     login_as_user(user_one)
+
+    Event.create(
+      name: "New Event",
+      date: "1776",
+      address: "77 Summer St. Boston, MA 02111",
+      description: "Something important happened here."
+    )
+
+    Event.create(
+      name: "Another Event",
+      date: "1805",
+      address: "123 Summer St. Boston, MA 02112",
+      description: "A different thing happed there."
+    )
 
     visit new_trip_path
 
     fill_in 'Name', with: "A cool trip"
-    select 'African Meeting House'
-    select 'Boston Anethaeum', from: 'End event'
+
+    within(".start-event") do
+      select('New Event')
+    end
+
+    within(".end-event") do
+      select('Another Event')
+    end
 
     click_on 'Create a Trip'
 
-    expect(page).to have_content("Trip created successfully!")
+    expect(page).to have_content "Trip created successfully!"
   end
 
-  xscenario 'unsuccessfully creates trip' do
+  scenario 'unsuccessfully creates trip' do
     login_as_user(user_one)
+
+    Event.create(
+      name: "New Event",
+      date: "1776",
+      address: "77 Summer St. Boston, MA 02111",
+      description: "Something important happened here."
+    )
+
+    Event.create(
+      name: "Another Event",
+      date: "1805",
+      address: "123 Summer St. Boston, MA 02112",
+      description: "A different thing happed there."
+    )
 
     visit new_trip_path
 
-    select 'African Meeting House', from: 'Start event'
-    select 'Boston Anethaeum', from: 'End event'
+    within(".start-event") do
+      select('New Event')
+    end
 
-    click_on 'Create a trip'
+    within(".end-event") do
+      select('Another Event')
+    end
 
-    expect(page).to have_content('Name can\'t be blank')
+    click_on 'Create a Trip'
+
+    expect(page).to have_content "Name can't be blank"
   end
 
-  xscenario 'admin can delete trip' do
+  scenario 'admin can delete trip' do
     login_as_user(user_one)
+
+    Event.create(
+      name: "New Event",
+      date: "1776",
+      address: "77 Summer St. Boston, MA 02111",
+      description: "Something important happened here."
+    )
+
+    Event.create(
+      name: "Another Event",
+      date: "1805",
+      address: "123 Summer St. Boston, MA 02112",
+      description: "A different thing happed there."
+    )
 
     visit new_trip_path
 
     fill_in 'Name', with: "A cool trip"
-    select 'African Meeting House'
-    select 'Boston Anethaeum', from: 'End event'
+
+    within(".start-event") do
+      select('New Event')
+    end
+
+    within(".end-event") do
+      select('Another Event')
+    end
 
     click_on 'Create a Trip'
 
-    click_on 'Delete Event'
+    click_on "Delete Trip"
 
-    expect(page).to have content("")
+    expect(page).to_not have_content "A cool trip"
   end
 end
