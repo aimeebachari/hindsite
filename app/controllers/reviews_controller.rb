@@ -1,9 +1,5 @@
 class ReviewsController < ApplicationController
 
-  def index
-    @reviews = Review.all
-  end
-
   def edit
     @review = Review.find(params[:id])
     @event = @review.event
@@ -18,6 +14,7 @@ class ReviewsController < ApplicationController
       flash[:alert] = "Review updated successfully!"
       redirect_to @event
     else
+      flash.now[:notice] = @review.errors.full_messages.to_sentence
       render :edit
     end
   end
@@ -29,6 +26,7 @@ class ReviewsController < ApplicationController
 
     if @user.id == @review.user_id || @user.admin?
       @review.destroy
+      flash[:notice] = "Review successfully deleted."
       redirect_to @event
     else
       flash[:notice] = "You don't have permission to delete this review!"
