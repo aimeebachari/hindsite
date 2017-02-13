@@ -1,6 +1,7 @@
 
- ![Codeship Status for aimeebachari/hindsite](https://app.codeship.com/projects/3813f5b0-c7ed-0134-81ec-26a273d7f22c/status?branch=master)![Code Climate](https://codeclimate.com/github/aimeebachari/hindsite.png)![Coverage Status](https://coveralls.io/repos/aimeebachari/hindsite/badge.png)
- # Hindsite
+ ![Codeship Status for aimeebachari/hindsite](https://app.codeship.com/projects/3813f5b0-c7ed-0134-81ec-26a273d7f22c/status?branch=master)
+
+# Hindsite
 
 HindSite is a mobile-friendly history app that allows users to locate all the historical places nearby using the Google Maps Geolocation API. Users can also add historical places and events. Using Google Maps Javascript API, users can view pinpoints of all added locations and create day trips using those events. By incorporating the Google Maps Directions API, users can view directions for their historical day trips.  
 
