@@ -137,6 +137,8 @@ RSpec.feature 'user can add trips' do
 
     click_on 'Create a Trip'
 
-    expect(page).to have_content "A cool trip"
+    click_on 'Delete Trip'
+
+    expect(page).to have_content "Trip successfully deleted."
   end
 end
