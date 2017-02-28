@@ -1,5 +1,5 @@
 
- ![Codeship Status for aimeebachari/hindsite](https://app.codeship.com/projects/3813f5b0-c7ed-0134-81ec-26a273d7f22c/status?branch=master)
+ ![Codeship Status for aimeebachari/hindsite](https://app.codeship.com/projects/3813f5b0-c7ed-0134-81ec-26a273d7f22c/status?branch=master)[![Coverage Status](https://coveralls.io/repos/github/aimeebachari/hindsite/badge.svg?branch=master)](https://coveralls.io/github/aimeebachari/hindsite?branch=master)
 
 # Hindsite
 
@@ -55,8 +55,10 @@ npm install
 
 Run the following commands in your terminal from the directory:
 
-`rails s
-npm start`
+```
+rails s
+npm start
+```
 
 Open the browser and enter `localhost:3000`.
 
