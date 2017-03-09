@@ -1,0 +1,17 @@
+<div class="row container">
+  <div class="columns large-4 small-12">
+    </br>
+    <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+    <li>Email: <%= @user.email %></li>
+    <br/>
+
+    <h4>Places Created:</h4>
+    <% unless @user.events.empty? %>
+      <ul>
+        <% @user.events.each do |event| %>
+          <li><%= link_to "#{event.name}", "/event/#{event.id}" %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+</div>
