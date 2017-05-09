@@ -11,8 +11,8 @@ RSpec.describe 'Event' do
         description: "Launch moves to Downtown Crossing."
       )
 
-      expect(event.latitude).to eq(42.3540205)
-      expect(event.longitude).to eq(-71.0588729)
+      expect(event.latitude).to eq(42.3540204)
+      expect(event.longitude).to eq(-71.05887299999999)
     end
   end
 
@@ -26,7 +26,7 @@ RSpec.describe 'Event' do
       )
 
       event.update(address: "14 Field St. Seekonk, MA 02771")
-      
+
       expect(event.save).to be true
       expect(event.latitude).to eq(41.844338)
       expect(event.longitude).to eq(-71.338703)
